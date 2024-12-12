@@ -136,6 +136,7 @@ class DynamoDBManager:
     def fetch_item_by_id(self, ai_website_id: str) -> Dict[str, Any]:
         logger.info(f"[DynamoDBManager] Fetching item by ai_website_id: {ai_website_id}")
         try:
+            from boto3.dynamodb.conditions import Key
             response = self.table.query(
                 IndexName="id-index", KeyConditionExpression=Key("id").eq(ai_website_id)
             )

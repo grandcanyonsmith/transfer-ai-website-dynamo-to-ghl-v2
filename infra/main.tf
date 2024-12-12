@@ -17,7 +17,6 @@ resource "aws_s3_bucket" "lambda_bucket" {
   acl    = "private"
 }
 
-# IAM Role for Lambda
 resource "aws_iam_role" "lambda_role" {
   name = "transfer-ai-website-dynamo-to-ghl-v2-lambda-role"
   assume_role_policy = jsonencode({
